@@ -1,9 +1,0 @@
-.git
-Dockerfile
-node_modules
-.env
-.next
-Docker-Build.sh
-.gitignore
-README.md
-.vscode
