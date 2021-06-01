@@ -1,0 +1,21 @@
+:root {
+  --background-color: hsl(0, 0%, 0%);
+  --user-background-color: hsl(190, 25%, 45%);
+  --user-border-color: hsl(0, 5%, 25%);
+  --text-color: hsl(0, 0%, 100%);
+  --social-background-color: hsl(0, 0%, 10%);
+  --social-border-color: hsl(0, 5%, 20%);
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,5 +1,16 @@
 # Socials: Single Link You'll Ever Need to Share
+
 Socials is a single-page website that stores all your social media and personal websites to share. It is similar to tappy.tech, sociallinks.co, compiled.social and linktr.ee, but open-source and built on Next.js 👨🏽‍💻. Self-hosting or publishing as a static website using the source code or Docker recommended!
+
+## ejs-express branch (still beta, lots of features planned)
+
+This branch switches the way it works by using plain html and css on the frontend since you only see one page at a time. In this branch the json file for the different socials uses an array of objects, each social has the option for the tag (title) set separatly from the type (ex: snapchat)
+
+### ejs-express branch planned features:
+
+1. MongoDB / MySQL
+2. user can edit their own socials page
+3. user can register to your socials using a url with a code from the hoster
 
 ## Changelog
 
@@ -12,7 +23,8 @@ Socials is a single-page website that stores all your social media and personal 
 
 Users are stored in the folder `/people`. There is a `.json` file to serve as an example. The one named `default.json` will be binded to the root directory. The other ones will be the url directory (example if it's named `felix.json` then url will be https://example.com/felix)
 
-Supported socials (for now) are: 
+Supported socials (for now) are:
+
 - Apple Music (appleMusic) music
 - Behance (behance) _new_
 - Discord (discord)
@@ -45,6 +57,7 @@ npm i -g yarn
 ```
 
 Once project is cloned you can go in the directory and run these `yarn` commands:
+
 ```bash
 # Download dependencies
 yarn install
@@ -53,7 +66,9 @@ yarn build
 # Start production build
 yarn start
 ```
+
 Or run the following `npm` commands:
+
 ```bash
 # Download dependencies
 npm install
@@ -68,6 +83,7 @@ You should be able to access the website on `localhost:3000` or if using Docker,
 ## Contributing
 
 If you are contributing I assume you know about `nodejs` and `yarn`. We require using `yarn` for developemnt since it's not recommended to mix Yarn and NPM in the same project, so start the project in development mode and happy pull requesting:
+
 ```bash
 # yarn 🧶
 yarn install
