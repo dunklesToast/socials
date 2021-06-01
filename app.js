@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const getInfo = require('./getInfo.js');
+const getInfo = require('./lib/getInfo.js');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -16,7 +16,6 @@ app.get('/:name', (req, res) => {
   const data = getInfo(req.params.name);
   res.render('user', {
     socialsData: data,
-    socialNetworks: data.socials,
   });
 });
 

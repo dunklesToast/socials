@@ -24,7 +24,7 @@
           <h1><%= socialsData.name %></h1>
         </div>
 
-        <% socialNetworks.forEach(social => { %>
+        <% socialsData.socials.forEach(social => { %>
         <div>
           <a
             href="<%= social.url %>"
@@ -34,7 +34,7 @@
           >
             <img
               src="/img/<%= social.type %>.png"
-              alt="<%= social.type %>"
+              alt="<%= social.type %> icon"
               height="55"
               width="55"
             />
