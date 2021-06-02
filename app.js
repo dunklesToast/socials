@@ -1,7 +1,10 @@
 const express = require('express');
+const minify = require('express-minify-html-2');
+
 const getInfo = require('./lib/getInfo.js');
 const editInfo = require('./lib/editInfo.js');
 const createJson = require('./lib/createJson.js');
+
 const config = require('./config/config.js');
 const app = express();
 
@@ -10,6 +13,20 @@ const port = process.env.PORT || 5000;
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
+app.use(
+  minify({
+    override: true,
+    exception_url: false,
+    htmlMinifier: {
+      removeComments: true,
+      collapseWhitespace: true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes: true,
+      removeEmptyAttributes: true,
+      minifyJS: true,
+    },
+  }),
+);
 
 app.get('/', (req, res) => {
   if (config.defaultuser) {
@@ -26,6 +43,7 @@ app.get('/:name', (req, res) => {
   const data = getInfo(req.params.name);
   res.render('user', {
     socialsData: data,
+    redirect: null,
   });
 });
 
@@ -40,15 +58,19 @@ if (config.allowEdit == true) {
   });
 
   app.post('/:name/edit', (req, res) => {
-    editInfo(JSON.parse(req.body.info), req.params.name);
-    setTimeout(res.redirect(`/${req.params.name}`), { timeout: 10 });
+    const data = JSON.parse(req.body.info);
+    res.render('user', {
+      socialsData: data,
+      redirect: `/${req.params.name}`,
+    });
+    editInfo(data, req.params.name);
   });
 }
 
 if (config.allowCreate == true && config.allowEdit == true) {
   app.get('/create/:name', (req, res) => {
     createJson(req.params.name);
-    setTimeout(res.redirect(`/${req.params.name}/edit`), { timeout: 10 });
+    setTimeout(res.redirect(`/${req.params.name}/edit`), 100);
   });
 }
 
