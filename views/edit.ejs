@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/edit.css" />
+    <script src="/js/prettyprint.js" defer></script>
+    <title>Edit <%= currentData.name %>'s page</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="current-data">
+        <h1>Current Data:</h1>
+        <h2>User:</h2>
+        <ul class="user">
+          <li>
+            <h2>Name:</h2>
+            <%= currentData.name %>
+          </li>
+          <li>
+            <h2>Image:</h2>
+            <img
+              src="<%= currentData.picture %>"
+              height="100"
+              width="100"
+            /><br />
+            <%= currentData.picture %>
+          </li>
+        </ul>
+        <h2>Current Socials:</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Url</th>
+              <th>Tag</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% currentData.socials.forEach(social => { %>
+            <tr>
+              <td><%= social.type %></td>
+              <td><%= social.url %></td>
+              <td><%= social.tag %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <div class="edit">
+        <h1>Edit Data:</h1>
+        <form
+          action="/<%= name %>/edit"
+          method="POST"
+          class="form"
+          id="editform"
+        >
+          <textarea name="info" form="editform" id="textarea">
+            <%= json %>
+          </textarea>
+          <br />
+          <button class="btn-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

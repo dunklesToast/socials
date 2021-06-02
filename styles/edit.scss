@@ -1,0 +1,40 @@
+@import url(/css/app.css);
+
+body {
+  margin-left: 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+@media only screen and (min-width: 950px) {
+  .container {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 60% 40%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+#textarea {
+  width: 90%;
+  height: 70vh;
+}
+
+@media only screen and (max-width: 950px) {
+  .edit {
+    width: 100%;
+  }
+
+  #textarea {
+    width: 100%;
+  }
+}
