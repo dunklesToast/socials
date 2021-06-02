@@ -1,16 +1,17 @@
 {
   "name": "Socials Example",
   "picture": "https://img.dkil.ca/diamkil.png",
+  "lang": "en",
   "socials": [
     {
       "type": "snapchat",
       "url": "https://www.snapchat.com/add/example",
-      "tag": "add me on snap!"
+      "tag": "Snapchat"
     },
     {
       "type": "discord",
       "url": "https://discordapp.com/users/229225747133235200",
-      "tag": "diamkil#6969"
+      "tag": "Discord"
     },
     {
       "type": "instagram",
@@ -20,12 +21,12 @@
     {
       "type": "facebook",
       "url": "https://www.facebook.com/example",
-      "tag": "Example Name For FB"
+      "tag": "Facebook"
     },
     {
       "type": "twitter",
       "url": "https://twitter.com/felixdiamkil",
-      "tag": "felixdiamkil"
+      "tag": "Twitter"
     },
     {
       "type": "applemusic",

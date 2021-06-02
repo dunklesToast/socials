@@ -1,48 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= socialsData.lang || "en" %>">
   <head>
     <title><%= socialsData.name %>'s Socials</title>
 
-    <meta charSet="UTF-8" />
+    <meta charset="UTF-8" />
     <meta property="og:title" content="<% socialsData.name %>'s Socials" />
     <meta property="og:site_name" content="Socials" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="<% socialsData.picture %> " />
-    <link rel="stylesheet" href="/css/app.css" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/user.css" />
   </head>
   <body>
     <div class="container">
-      <div class="sociallinks">
-        <div class="user">
-          <img
-            src="<%= socialsData.picture %> "
-            height="100"
-            width="100"
-            alt="<%= socialsData.name %>'s Image"
-          />
-          <h1><%= socialsData.name %></h1>
-        </div>
-
-        <% socialsData.socials.forEach(social => { %>
-        <div>
-          <a
-            href="<%= social.url %>"
-            target="_blank"
-            rel="noreferrer"
-            class="social"
-          >
-            <img
-              src="/img/<%= social.type %>.png"
-              alt="<%= social.type %> icon"
-              height="55"
-              width="55"
-            />
-            <h3><%= social.tag %></h3>
-          </a>
-        </div>
-        <% }); %>
+      <div class="user">
+        <img
+          src="<%= socialsData.picture %> "
+          height="100"
+          width="100"
+          alt="<%= socialsData.name %>'s Image"
+        />
+        <h1><%= socialsData.name %></h1>
       </div>
+      <% socialsData.socials.forEach(social => { %>
+      <div>
+        <a
+          href="<%= social.url %>"
+          target="_blank"
+          rel="noreferrer"
+          class="social"
+        >
+          <img
+            src="/img/<%= social.type %>.png"
+            alt="<%= social.type %> icon"
+            height="55"
+            width="55"
+          />
+          <h3><%= social.tag %></h3>
+        </a>
+      </div>
+      <% }); %>
     </div>
   </body>
 </html>

@@ -1,8 +1,8 @@
 const express = require('express');
-const fs = require('fs');
-const path = require('path');
 const getInfo = require('./lib/getInfo.js');
 const app = express();
+
+const port = process.env.PORT || 5000;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -19,4 +19,6 @@ app.get('/:name', (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 5000);
+app.listen(port, function () {
+  console.log(`Listening on http://localhost:${port}`);
+});
