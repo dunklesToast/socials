@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon app.js & sass --no-source-map --watch styles/:public/css --style compressed",
+    "dev": "concurrently -n server,sass \"nodemon app.js\" \"sass --no-source-map --watch styles/:public/css --style compressed\"",
     "start": "node app.js",
     "build": "sass styles/:public/css/ --style compressed --no-source-map"
   },
@@ -13,6 +13,7 @@
     "express-minify-html-2": "^1.0.1"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.0",
     "sass": "^1.34.0"

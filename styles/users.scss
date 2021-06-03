@@ -1,0 +1,15 @@
+@import url(/css/app.css);
+
+.grid {
+  display: grid;
+  grid-template-columns: 40% 20% 20% 20%;
+}
+
+.container {
+  width: 375px;
+}
+
+h1,
+label {
+  margin-left: 10px;
+}
