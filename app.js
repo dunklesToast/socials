@@ -52,8 +52,13 @@ if (config.allowEdit == true) {
 
 if (config.allowCreate == true && config.allowEdit == true) {
   app.post('/createUser', (req, res) => {
-    createJson(req.body.name);
-    res.redirect('/users');
+    str = req.body.name;
+    if (str.length == 0) {
+      res.redirect('/users');
+    } else {
+      createJson(str);
+      res.redirect('/users');
+    }
   });
 
   app.get('/users', (req, res) => {
